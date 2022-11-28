@@ -1,0 +1,30 @@
+{
+  "name": "himondiscordbot",
+  "version": "1.1.0",
+  "description": "Himon Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Himon",
+  "dependencies": {
+    "@discordjs/builders": "^1.3.0",
+    "@discordjs/rest": "^1.3.0",
+    "discord-api-types": "^0.37.12",
+    "discord.js": "^14.6.0",
+    "dotenv": "^8.6.0",
+    "mysql2": "^2.3.2",
+    "selenium-webdriver": "^4.6.1",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himonn/himondiscordbot.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Himonn/himondiscordbot/issues"
+  },
+  "homepage": "https://github.com/Himonn/himondiscordbot#readme"
+}
