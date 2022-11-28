@@ -8,7 +8,7 @@ const bot = new Discord.Client({
     ],
 });
 
-const DISC_TOKEN = process.env.DISC_TOKEN;
+const DISC_TOKEN = process.env.PENGS_DISC_TOKEN;
 bot.login(DISC_TOKEN);
 
 bot.once("ready", function(error){
