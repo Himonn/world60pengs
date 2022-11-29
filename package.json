@@ -2,9 +2,9 @@
   "name": "world60pengs",
   "version": "1.0.0",
   "description": "World 60 Pengs",
-  "main": "index.js",
+  "main": "world60pengs.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node world60pengs.js"
   },
   "author": "Himon",
   "dependencies": {
