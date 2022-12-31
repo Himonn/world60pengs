@@ -1,6 +1,6 @@
 require('dotenv').config();
-const http = require('http');
 const Discord = require('discord.js');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const bot = new Discord.Client({
     intents: [
         Discord.GatewayIntentBits.Guilds,
@@ -12,6 +12,7 @@ const DISC_TOKEN = process.env.PENGS_DISC_TOKEN;
 bot.login(DISC_TOKEN);
 
 bot.once("ready", function(error){
+    console.log("Bot Started...");
     sendMessage("Bot Started...")
     bot.user.setActivity("Hunting Penguins");
 });
@@ -23,31 +24,13 @@ setInterval(getPenguins, timeout);
 
 async function getPenguins()
 {
-    let str = '';
+    const url = `https://jq.world60pengs.com/rest/index.php?m=activepenguin`;
 
-    var options = {
-        host: 'jq.world60pengs.com',
-        path: '/rest/index.php?m=activepenguin'
-    };
+    const res = await fetch(url);
+    const json = await res.json();
+    if (res.status < 200 || res.status >= 300) throw new Error(JSON.stringify(res));
 
-    callback = function(response) {
-        str = '';
-
-        response.on('data', function (chunk) {
-            str += chunk;
-        });
-
-        response.on('end', function () {
-            try {
-                let json = JSON.parse(str);
-                findPenguin(json);
-            } catch (error) {
-                console.error(error.message);
-            };
-        });
-    }
-
-    http.request(options, callback).end();
+    findPenguin(json);
 }
 
 function findPenguin(json)
